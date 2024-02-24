@@ -1,2 +1,2 @@
-# dry-in-gha
-Using DRY principle in Github Actions
+# DRY Principle in Github Actions
+Using [DRY](https://w.wiki/9Gy4) principle in Github Actions.
