@@ -1,0 +1,13 @@
+name: Action using reusable
+run-name: ${{ github.actor }} is running twice a reusable action
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  jobNo1:
+  uses: ./reusable.yml
+
+  jobNo2:
+  uses: ./reusable.yml
