@@ -7,7 +7,7 @@ on:
 
 jobs:
   jobNo1:
-  uses: ./reusable.yml
+    uses: volvas/dry-in-gha/.github/workflows/reusable.yml@main
 
   jobNo2:
-  uses: ./reusable.yml
+    uses: volvas/dry-in-gha/.github/workflows/reusable.yml@main
