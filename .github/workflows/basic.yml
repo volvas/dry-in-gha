@@ -1,0 +1,24 @@
+name: Regular Action
+run-name: ${{ github.actor }} is learning GitHub Actions
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  jobNamedByMe:
+    runs-on: ubuntu-latest
+    env:
+      myVar: Hello
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
+      - name: Check custom env variables
+        run: echo "Custom variable=$myVar"
