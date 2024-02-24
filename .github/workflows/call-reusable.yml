@@ -8,6 +8,14 @@ on:
 jobs:
   jobNo1:
     uses: volvas/dry-in-gha/.github/workflows/reusable.yml@main
+    with:
+      config-path: .github/labeler.yml
+    secrets:
+      envPAT: ${{ secrets.envPAT }}
 
   jobNo2:
     uses: volvas/dry-in-gha/.github/workflows/reusable.yml@main
+    with:
+      config-path: .github/labeler.yml
+    secrets:
+      envPAT: ${{ secrets.envPAT }}
