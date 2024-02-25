@@ -43,9 +43,11 @@ jobs:
         env:
           step2Var: "Hi from Step1, Job2"
         run: |
-         echo Checking env variables.
-         echo "Global var value=$globalVar"
+          echo Checking env variables.
+          echo "Global var value=$globalVar"
           echo "Job 1 var value=$myJobVar"
           echo "Job 2 var value=$myJob2Var"
           echo "Step 2 var value=$step2Var"
           echo "Step 1 Job 1 var value=$step1Var"
+      - name: Check Job Defaults
+        run: echo "Default values=${{ jobs.jobNo2.defaults}}"
