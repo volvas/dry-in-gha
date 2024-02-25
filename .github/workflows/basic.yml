@@ -1,5 +1,7 @@
 name: Regular Action
 run-name: ${{ github.actor }} is learning GitHub Actions
+env:
+  globalVar: "a global variable value"
 
 on:
   push:
@@ -9,7 +11,7 @@ jobs:
   jobNamedByMe:
     runs-on: ubuntu-latest
     env:
-      myVar: Hello
+      myJobVar: Hello from job var
     steps:
       - uses: actions/checkout@v4
 
@@ -17,8 +19,18 @@ jobs:
         run: echo Hello, world!
 
       - name: Run a multi-line script
+        env:
+          step1Var: "hi from step var"
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          echo "Global var value=$globalVar"
+          echo "Job var value=$myJobVar"
+          echo "Step var value=$step1Var"
+          
       - name: Check custom env variables
-        run: echo "Custom variable=$myVar"
+        run: |
+          echo "Custom variable (missing)=$myVar"
+          echo "Global var value=$globalVar"
+          echo "Job var value=$myJobVar"
+          echo "Previous Step var value=$step1Var"
