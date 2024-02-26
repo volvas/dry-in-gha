@@ -61,6 +61,10 @@ jobs:
         env:
           VAR_CONTEXT: ${{ toJson(vars) }}
         run: echo "$VAR_CONTEXT"
+      - name: Dump secrets context
+        env:
+          SECRET_CONTEXT: ${{ toJson(secrets) }}
+        run: echo "$SECRET_CONTEXT"
       - name: Step 3 in Job2
         env:
           THIS_VAR: ${{ env.REPO_VAR }}
