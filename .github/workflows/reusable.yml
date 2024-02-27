@@ -4,27 +4,16 @@ run-name: ${{ github.actor }} is running reusable action
 on:
   workflow_call:
     inputs:
-      config-path:
+      input-arg:
         required: true
         type: string
-    secrets:
-      envPAT:
-        required: true
 
 jobs:
   reusable-job:
     runs-on: ubuntu-latest
-    env:
-      myVar: Hello
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - name: Check passed argument
+        run: echo "Input: $input-arg"
 
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-      - name: Check custom env variables
-        run: echo "Custom variable=$myVar"

@@ -9,13 +9,9 @@ jobs:
   jobNo1:
     uses: volvas/dry-in-gha/.github/workflows/reusable.yml@main
     with:
-      config-path: .github/labeler.yml
-    secrets:
-      envPAT: ${{ secrets.envPAT }}
+      input-arg: Argument from job 1
 
   jobNo2:
     uses: volvas/dry-in-gha/.github/workflows/reusable.yml@main
     with:
-      config-path: .github/labeler.yml
-    secrets:
-      envPAT: ${{ secrets.envPAT }}
+      input-arg: Argument from job 2
