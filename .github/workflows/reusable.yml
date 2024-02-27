@@ -15,5 +15,6 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Check passed argument
-        run: echo "Input: $input-arg"
-
+        env:
+          inputArg: ${{ inputs.input-arg }}
+        run: echo "Got input=$inputArg"
