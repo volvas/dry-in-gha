@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Call local action
         id: random-generator
-        uses: ./.github/actions/my-action.yml
+        uses: ./.github/actions/my-action
         with:
           any-input: custom value
 
