@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call local action
+        id: random-generator
         uses: ./.github/actions/my-action.yml
         with:
           any-input: custom value
