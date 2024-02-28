@@ -1,0 +1,18 @@
+name: Uses local action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-local-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call local action
+        uses: ./.github/actions/my-action.yml
+        with:
+          any-input: custom value
+
+      - name: Print random
+        env:
+          RANDOM_NO: ${{ steps.random-generator.outputs.random-number }}
+        run: echo "Got random=$RANDOM_NO"
