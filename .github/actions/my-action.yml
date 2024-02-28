@@ -1,0 +1,27 @@
+name: Simple Action
+description: Simple action printing input variable
+inputs:
+  any-input:
+    description: Provide any value
+    required: true
+    default: any value
+outputs:
+  any-output:
+    description: just some output
+    value: ${{ steps.random-generator.outputs.random-number }}
+runs:
+  using: "composite"
+  steps:
+    - name: Run first step
+      env:
+        INPUT_VAR: ${{ inputs.any-input }}
+      run: echo "Hello $INPUT_VAR"
+      
+    - name: Random Generator
+      id: random-generator
+      run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
+
+    - name: Print random
+      env:
+        STEP_OUTPUT: ${{ steps.random-generator.outputs.random-number }}
+      run: echo "Output: $STEP_OUTPUT"
