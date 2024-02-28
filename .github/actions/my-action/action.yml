@@ -27,4 +27,4 @@ runs:
       env:
         STEP_OUTPUT: ${{ steps.random-generator.outputs.random-number }}
       shell: bash
-      run: echo "Output: $STEP_OUTPUT"
+      run: echo "Output=$STEP_OUTPUT"
