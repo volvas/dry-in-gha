@@ -15,16 +15,13 @@ runs:
     - name: Run first step
       env:
         INPUT_VAR: ${{ inputs.any-input }}
-      shell: bash
       run: echo "Hello $INPUT_VAR"
       
     - name: Random Generator
       id: random-generator
-      shell: bash
       run: echo "random-number=$(echo $RANDOM)" >> $GITHUB_OUTPUT
 
     - name: Print random
       env:
         STEP_OUTPUT: ${{ steps.random-generator.outputs.random-number }}
-      shell: bash
       run: echo "Output=$STEP_OUTPUT"
