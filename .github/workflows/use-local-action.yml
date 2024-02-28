@@ -17,5 +17,5 @@ jobs:
 
       - name: Print random
         env:
-          RANDOM_NO: ${{ steps.random-generator.outputs.random-number }}
+          RANDOM_NO: ${{ steps.random-generator.outputs.any-output }}
         run: echo "Got random=$RANDOM_NO"
